@@ -68,7 +68,7 @@
                                       placeholder="Nhập mô tả"
                                       name="product_desc">{{ $product->product_desc }}</textarea>
                         </div>
-                        <button type="submit" class="btn btn-info">Thêm sản phẩm</button>
+                        <button type="submit" class="btn btn-info">Cập nhật sản phẩm</button>
                     </form>
                 @endforeach
             </div>

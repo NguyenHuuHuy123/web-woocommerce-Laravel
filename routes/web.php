@@ -54,7 +54,19 @@ Route::group(["prefix"=>"/admin", "middleware"=>"authMiddleware"], function(){
     Route::get('/action-product/{product_id}/{product_action}', "ProductController@action_product" ); //Xóa product
 });
 
+Route::group(["prefix"=>"/ajax"], function(){
+    Route::get('/category/{idCategory}', "AjaxController@getBrand" );
+    Route::post('/shoppingcard', "AjaxController@saveCart" );
+});
 Route::get('/ajax/category/{idCategory}', "AjaxController@getBrand" );
+
+Route::group(["prefix"=>"/shop"], function(){
+    Route::get('/danh-muc/{category_id}', "HomeController@getProductCategory" );
+    Route::get('/thuong-hieu/{brand_id}', "HomeController@getProductBrand" );
+    Route::get('/san-pham/{product_id}', "HomeController@getProductId" );
+    Route::get('/cart', "HomeController@getCart" );
+    Route::get('/cart/delete-product/{idProduct}', "HomeController@deleteProductCart" );
+});
 
 
 
