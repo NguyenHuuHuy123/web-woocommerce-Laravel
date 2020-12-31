@@ -49,7 +49,7 @@ class HomeController extends Controller
         unset($giohang[$idProduct]);
         Session::put("cart", $giohang);
         DetailOderModel::where("product_id", $idProduct)->delete();
-        return redirect("/shop/checkout");
+        return back();
     }
 
     //Check OUT

@@ -70,8 +70,9 @@
                     <div class="shop-menu pull-right">
                         <ul class="nav navbar-nav">
                             <li><a href="{{URL::to('customer/account')}}"><i class="fa fa-user"></i> Tài khoản</a></li>
-                            <li><a href="{{URL::to('shop/checkout')}}"><i class="fa fa-crosshairs"></i> Thanh toán</a>
-                            </li>
+                            @if(Session::get("accountCustomer"))
+                                <li><a href="{{URL::to('shop/checkout')}}"><i class="fa fa-crosshairs"></i> Thanh toán</a></li>
+                            @endif
                             <li>
                                 <a href="{{URL::to('shop/cart')}}">
                                     <i class="fa fa-shopping-cart"></i>
@@ -80,7 +81,11 @@
                                           style="background-color: #FE980F">
                                         <?php
                                         $giohang = Session::get("cart");
-                                        echo count($giohang);
+                                        if (count($giohang)>0){
+                                            echo count($giohang);
+                                        } else {
+                                            echo 0;
+                                        }
                                         ?>
                                     </span>
                                 </a>
@@ -151,9 +156,13 @@
                             <li><a href="{{URL::to('shop/cart')}}">Giỏ hàng
                                     <span class="badge badge-pill badge-danger soSanPhamTrongGioHang"
                                           style="background-color: #FE980F">
-                                         <?php
+                                        <?php
                                         $giohang = Session::get("cart");
-                                        echo count($giohang);
+                                        if (count($giohang)>0){
+                                            echo count($giohang);
+                                        } else {
+                                            echo 0;
+                                        }
                                         ?>
                                     </span>
                                 </a>

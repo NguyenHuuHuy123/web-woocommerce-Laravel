@@ -49,6 +49,12 @@
                                 </td>
                             </tr>
                         @endforeach
+                    @else
+                        <tr class="chiTietTungSanPham">
+                            <td class="cart_description">
+                                <h4>Bạn chưa có sản phẩm trong giỏ!</h4>
+                            </td>
+                        </tr>
                     @endif
 
                     </tbody>
@@ -87,7 +93,14 @@
                             <li>Tổng cộng <span style="font-weight: bolder">{{number_format($tongGioHang*105/100)}} vnd</span></li>
                         </ul>
                         <a class="btn btn-default update" href="{{URL::to('/trang-chu')}}">Mua tiếp</a>
-                        <a class="btn btn-default check_out" id="tienhanhthanhtoan" href="{{URL::to('/shop/checkout')}}">Tiến hành thanh toán</a>
+                        <a class="btn btn-default check_out" id="tienhanhthanhtoan" href="{{URL::to('/shop/checkout')}}"
+                        <?php
+                            $giohang = Session::get("cart");
+                            if (count($giohang) == 0){
+                                echo 'disabled="true"';
+                            }
+                            ?>
+                        >Tiến hành thanh toán</a>
                     </div>
                 </div>
             </div>
