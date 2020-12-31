@@ -20,7 +20,7 @@
                                 <a class="img-product-features" href="{{URL::to('/shop/san-pham/'.$product->id)}}">
                                     <img src="{{URL::to($product->product_image)}}" alt=""/>
                                 </a>
-                                <h2>{{$product->product_price}} vnđ</h2>
+                                <h2>{{number_format($product->product_price)}}</h2>
                                 <p>{{$product->product_name}}</p>
                                 <button class="btn btn-default add-to-cart" data-idProduct="{{$product->id}}"><i
                                         class="fa fa-shopping-cart"></i>Thêm vào

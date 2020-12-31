@@ -6,24 +6,12 @@ use Illuminate\Http\Request;
 use App\CategoryModel;
 use App\BrandModel;
 use App\ProductModel;
+use App\DetailOderModel;
 use Session;
 
 class HomeController extends Controller
 {
-    function __construct()
-    {
-        $this->viewShare();
-    }
-    public function viewShare(){
-        $allCategory = CategoryModel::all();
-        $allBrand= BrandModel::all();
-        $allProduct = ProductModel::all();
-        Session::put("cart", array());
-        view()->share(['allCategory'=>$allCategory, 'allBrand'=> $allBrand, 'allProduct'=>$allProduct ]);
-    }
     public function index(){
-
-        $allProduct = ProductModel::take(6)->orderBy('id', 'desc')->get();
         return view("pages.home");
     }
 
@@ -45,6 +33,14 @@ class HomeController extends Controller
     }
 
     public function getCart(){
+        $allProduct = ProductModel::all();
+        $giohang = Session::get("cart");
+        $tongGioHang = 0;
+        foreach($giohang as $idProduct => $quantity){
+            $giaTien = $allProduct->find($idProduct)->product_price;
+            $tongGioHang = $tongGioHang + $giaTien*$quantity;
+        };
+        Session::put("tongGioHang",$tongGioHang );
         return view('pages.cart');
     }
 
@@ -52,8 +48,21 @@ class HomeController extends Controller
         $giohang = Session::get("cart");
         unset($giohang[$idProduct]);
         Session::put("cart", $giohang);
-        return redirect("/shop/cart");
+        DetailOderModel::where("product_id", $idProduct)->delete();
+        return redirect("/shop/checkout");
     }
 
+    //Check OUT
+    public function checkOut( ){
+        $allProduct = ProductModel::all();
+        $giohang = Session::get("cart");
+        $tongGioHang = 0;
+        foreach($giohang as $idProduct => $quantity){
+            $giaTien = $allProduct->find($idProduct)->product_price;
+            $tongGioHang = $tongGioHang + $giaTien*$quantity;
+        };
+        Session::put("tongGioHang",$tongGioHang );
+        return view('pages.checkout');
+    }
 
 }

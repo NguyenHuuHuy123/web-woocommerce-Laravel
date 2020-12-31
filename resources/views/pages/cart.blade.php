@@ -10,8 +10,8 @@
                 </ol>
             </div>
             <?php
-            $giohang = Session::get('cart')
-            ?>
+            $giohang = Session::get('cart');
+                ?>
             <div class="table-responsive cart_info">
                 <table class="table table-condensed">
                     <thead>
@@ -27,7 +27,7 @@
                     <tbody>
                     @if ($giohang)
                         @foreach($giohang as $id=>$quantity)
-                            <tr class="chiTietTungSanPham">
+                            <tr class="chiTietTungSanPham" data-idProduct="{{$id}}">
                                 <td class="cart_product">
                                     <a href="{{URL::to('shop/san-pham/'.$id)}}"><img height="30px" width="auto" src="{{URL::to($allProduct->find($id)->product_image)}}" alt=""></a>
                                 </td>
@@ -36,16 +36,13 @@
                                     <p>Mã sản phẩm ID: {{$id}}</p>
                                 </td>
                                 <td class="cart_price">
-                                    <p  style="text-align: right; padding-right: 40px">{{$allProduct->find($id)->product_price}}</p>
+                                    <p  style="text-align: right; padding-right: 40px">{{number_format($allProduct->find($id)->product_price)}} vnd</p>
                                 </td>
                                 <td class="cart_quantity">
-                                    <input class="cart_quantity_input" type="number" name="quantity" style="width: 60px" value="{{$quantity}}">
-{{--                                    <div class="cart_quantity_button" style="width: 10px">--}}
-{{--                                        --}}
-{{--                                    </div>--}}
+                                    <input min="1" max="10" class="cart_quantity_input" type="number" name="quantity" style="width: 60px" value="{{$quantity}}">
                                 </td>
                                 <td class="cart_total">
-                                    <p class="cart_total_price" style="text-align: right; padding-right: 40px">{{$quantity * $allProduct->find($id)->product_price}}</p>
+                                    <p class="cart_total_price" style="text-align: right; padding-right: 40px">{{number_format($quantity * $allProduct->find($id)->product_price)}} vnd</p>
                                 </td>
                                 <td class="cart_delete">
                                     <a class="cart_quantity_delete" href="{{URL::to('shop/cart/delete-product/'.$id)}}"><i class="fa fa-times"></i></a>
@@ -57,7 +54,8 @@
                     </tbody>
                 </table>
             </div>
-            <div style="text-align: right"><a class="btn btn-default check_out" href="{{URL::to('shop/cart')}}" id="capnhatlaigiohang"> > Cập nhật lại giỏ hàng</a></div>
+            <div style="text-align: right"><a class="btn btn-default check_out" id="capnhatlaigiohang" > > Cập nhật lại giỏ hàng</a></div>
+{{--            href="{{URL::to('shop/cart')}}"--}}
         </div>
     </section>
     <section id="do_action">
@@ -76,14 +74,20 @@
                 </div>
                 <div class="col-sm-6">
                     <div class="total_area">
+                        <?php
+                        $tongGioHang = 0;
+                        if(Session::get('tongGioHang')){
+                            $tongGioHang = Session::get('tongGioHang');
+                        };
+                        ?>
                         <ul>
-                            <li>Tổng giỏ hàng <span>$59</span></li>
-                            <li>Thuế (5%) <span>$2</span></li>
+                            <li>Tổng giỏ hàng <span>{{number_format($tongGioHang)}} vnd</span></li>
+                            <li>Thuế (5%) <span>{{number_format($tongGioHang*5/100)}} vnd</span></li>
                             <li>Phí chuyển hàng <span>Free</span></li>
-                            <li>Tổng cộng <span style="font-weight: bolder">$61</span></li>
+                            <li>Tổng cộng <span style="font-weight: bolder">{{number_format($tongGioHang*105/100)}} vnd</span></li>
                         </ul>
-                        <a class="btn btn-default update" href="">Mua tiếp</a>
-                        <a class="btn btn-default check_out" href="">Tiến hành thanh toán</a>
+                        <a class="btn btn-default update" href="{{URL::to('/trang-chu')}}">Mua tiếp</a>
+                        <a class="btn btn-default check_out" id="tienhanhthanhtoan" href="{{URL::to('/shop/checkout')}}">Tiến hành thanh toán</a>
                     </div>
                 </div>
             </div>

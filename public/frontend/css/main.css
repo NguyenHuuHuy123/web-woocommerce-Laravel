@@ -1245,13 +1245,15 @@ h2.title {
 }
 
 .product-information span {
-    display: inline-block;
+    display: block;
     margin-bottom: 8px;
     margin-top: 18px;
 }
 
 .product-information span span {
     color: #FE980F;
+    width: 100%;
+    display: block;
     float: left;
     font-family: 'Roboto', sans-serif;
     font-size: 30px;
@@ -1432,8 +1434,8 @@ h2.title {
 
 #form {
     display: block;
-    margin-bottom: 185px;
-    margin-top: 185px;
+    margin-bottom: 100px;
+    margin-top: 100px;
     overflow: hidden;
 }
 
@@ -2536,4 +2538,37 @@ h2.title {
     top: 10px;
     right: 10px;
     z-index: 10000;
+}
+
+.accountAndLogout{
+    margin-top: 10px;
+    position: relative;
+}
+
+.accountAndLogout:hover .accountAndLogout_item{
+ display: block;
+}
+
+.accountAndLogout_item{
+    background-color: #f0f0e9;
+    text-align: right;
+    display: none;
+    position: absolute;
+    padding-left: 0px;
+    right: 0px;
+    width: 100%;
+}
+
+.accountAndLogout_item li{
+
+    width: 100%;
+    padding-top: 5px ;
+    text-align: right;
+    padding-right: 5px !important;
+}
+
+
+.accountAndLogout_item li a{
+    width: 100%;
+    background-color: #f0f0e9 !important;
 }

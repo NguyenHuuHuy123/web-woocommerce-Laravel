@@ -14,12 +14,11 @@
                             <div class="carousel-inner">
                                 <div class="item active">
                                     <div class="col-sm-6">
-                                        <h1><span>E</span>-SHOPPER</h1>
-                                        <h2>Free E-Commerce Template</h2>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                                            tempor
-                                            incididunt ut labore et dolore magna aliqua. </p>
-                                        <button type="button" class="btn btn-default get">Get it now</button>
+                                        <h1><span>T</span>-TEEDALL</h1>
+                                        <h2>Teedall Thiết bị điện tử</h2>
+                                        <p>Teedall được thành lập năm 2018 bởi anh Nguyễn Hữu Huy, với mong muốn đem lại sản phẩm tốt giá cả hợp lý cho người Việt.
+                                        </p>
+                                        <button type="button" class="btn btn-default get">Khám phá ngay</button>
                                     </div>
                                     <div class="col-sm-6">
                                         <img src="{{('public/frontend/img/home/girl1.jpg')}}"
@@ -30,12 +29,11 @@
                                 </div>
                                 <div class="item">
                                     <div class="col-sm-6">
-                                        <h1><span>E</span>-SHOPPER</h1>
-                                        <h2>100% Responsive Design</h2>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                                            tempor
-                                            incididunt ut labore et dolore magna aliqua. </p>
-                                        <button type="button" class="btn btn-default get">Get it now</button>
+                                        <h1><span>T</span>-TEEDALL</h1>
+                                        <h2>Teedall Thiết bị điện tử</h2>
+                                        <p>Teedall được thành lập năm 2018 bởi anh Nguyễn Hữu Huy, với mong muốn đem lại sản phẩm tốt giá cả hợp lý cho người Việt.
+                                        </p>
+                                        <button type="button" class="btn btn-default get">Khám phá ngay</button>
                                     </div>
                                     <div class="col-sm-6">
                                         <img src="{{('public/frontend/img/home/girl2.jpg')}}"
@@ -47,12 +45,11 @@
 
                                 <div class="item">
                                     <div class="col-sm-6">
-                                        <h1><span>E</span>-SHOPPER</h1>
-                                        <h2>Free Ecommerce Template</h2>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                                            tempor
-                                            incididunt ut labore et dolore magna aliqua. </p>
-                                        <button type="button" class="btn btn-default get">Get it now</button>
+                                        <h1><span>T</span>-TEEDALL</h1>
+                                        <h2>Teedall Thiết bị điện tử</h2>
+                                        <p>Teedall được thành lập năm 2018 bởi anh Nguyễn Hữu Huy, với mong muốn đem lại sản phẩm tốt giá cả hợp lý cho người Việt.
+                                        </p>
+                                        <button type="button" class="btn btn-default get">Khám phá ngay</button>
                                     </div>
                                     <div class="col-sm-6">
                                         <img src="{{('public/frontend/img/home/girl3.jpg')}}"
@@ -93,7 +90,7 @@
                                 <a class="img-product-features" href="{{URL::to('/shop/san-pham/'.$product->id)}}">
                                     <img src="{{URL::to($product->product_image)}}" alt=""/>
                                 </a>
-                                <h2>{{$product->product_price}} vnđ</h2>
+                                <h2>{{number_format($product->product_price)}}</h2>
                                 <p>{{$product->product_name}}</p>
                                 <button class="btn btn-default add-to-cart" data-idProduct="{{$product->id}}"><i
                                         class="fa fa-shopping-cart"></i>Thêm vào
@@ -131,7 +128,7 @@
                                                href="{{URL::to('/shop/san-pham/'.$product_item->id)}}">
                                                 <img src="{{URL::to($product_item->product_image)}}" alt=""/>
                                             </a>
-                                            <h2>{{$product_item->product_price}} vnđ</h2>
+                                            <h2>{{number_format($product_item->product_price)}}</h2>
                                             <p>{{$product_item->product_name}}</p>
                                             <button class="btn btn-default add-to-cart"
                                                     data-idProduct="{{$product_item->id}}"><i

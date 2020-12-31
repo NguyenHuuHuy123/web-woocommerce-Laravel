@@ -16,7 +16,7 @@
                     <p>Mã sản phẩm ID: {{$detailProduct->id}}</p>
                     <span>
                     <form action="" id="form-cart" name="form-cart">
-                        <span>{{$detailProduct->product_price}} vnd</span>
+                        <span>{{number_format($detailProduct->product_price)}} vnd</span>
                         <div>Số lượng:</div>
                         <input type="number" value="1" min="1" max="10" id="value-quatity">
                         <button type="button" class="btn btn-fefault cart btn-submit-bill"
@@ -99,7 +99,7 @@
                                                href="{{URL::to('/shop/san-pham/'.$product->id)}}">
                                                 <img src="{{URL::to($product->product_image)}}" alt="">
                                             </a>
-                                            <h2>{{$product->product_price}} vnđ</h2>
+                                            <h2>{{number_format($product->product_price)}}</h2>
                                             <p>{{$product->product_name}}</p>
                                             <button type="button" class="btn btn-default add-to-cart"
                                                     data-idProduct="{{$product->id}}"><i
@@ -121,7 +121,7 @@
                                                href="{{URL::to('/shop/san-pham/'.$product->id)}}">
                                                 <img src="{{URL::to($product->product_image)}}" alt="">
                                             </a>
-                                            <h2>{{$product->product_price}} vnđ</h2>
+                                            <h2>{{number_format($product->product_price)}}</h2>
                                             <p>{{$product->product_name}}</p>
                                             <button type="button" class="btn btn-default add-to-cart"
                                                     data-idProduct="{{$product->id}}"

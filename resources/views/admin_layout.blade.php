@@ -8,18 +8,26 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <head>
     <title>Visitors an Admin Panel Category Bootstrap Responsive Website Template | Home :: w3layouts</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta name="keywords" content="Visitors Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
-Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
-    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design"/>
+    <script type="application/x-javascript"> addEventListener("load", function () {
+            setTimeout(hideURLbar, 0);
+        }, false);
+
+        function hideURLbar() {
+            window.scrollTo(0, 1);
+        } </script>
     <!-- bootstrap-css -->
-    <link rel="stylesheet" href="{{asset("public/backend/css/bootstrap.min.css")}}" >
+    <link rel="stylesheet" href="{{asset("public/backend/css/bootstrap.min.css")}}">
     <!-- //bootstrap-css -->
     <!-- Custom CSS -->
-    <link href="{{asset("public/backend/css/style.css")}}" rel='stylesheet' type='text/css' />
+    <link href="{{asset("public/backend/css/style.css")}}" rel='stylesheet' type='text/css'/>
     <link href="{{asset("public/backend/css/style-responsive.css")}}" rel="stylesheet"/>
     <!-- font CSS -->
-    <link href='//fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+    <link
+        href='//fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic'
+        rel='stylesheet' type='text/css'>
     <!-- font-awesome icons -->
     <link rel="stylesheet" href="{{asset("public/backend/css/font.css")}}" type="text/css"/>
     <link href="{{asset("public/backend/css/font-awesome.css")}}" rel="stylesheet">
@@ -60,7 +68,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <span class="username">
                             <?php
                             $nameUser = Session::get("admin_name");
-                            if($nameUser){
+                            if ($nameUser) {
                                 echo $nameUser;
                             };
                             ?>
@@ -126,62 +134,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <li class="sub-menu">
                         <a href="javascript:;">
                             <i class="fa fa-tasks"></i>
-                            <span>Form Components</span>
+                            <span>Quản lý đơn hàng</span>
                         </a>
                         <ul class="sub">
-                            <li><a href="form_component.html">Form Elements</a></li>
-                            <li><a href="form_validation.html">Form Validation</a></li>
-                            <li><a href="dropzone.html">Dropzone</a></li>
+                            <li><a href="{{URL::to('admin/all-customer')}}">Khách hàng</a></li>
+                            <li><a href="{{URL::to('admin/view-oder')}}">Đơn hàng</a></li>
                         </ul>
                     </li>
-                    <li class="sub-menu">
-                        <a href="javascript:;">
-                            <i class="fa fa-envelope"></i>
-                            <span>Mail </span>
-                        </a>
-                        <ul class="sub">
-                            <li><a href="mail.html">Inbox</a></li>
-                            <li><a href="mail_compose.html">Compose Mail</a></li>
-                        </ul>
-                    </li>
-                    <li class="sub-menu">
-                        <a href="javascript:;">
-                            <i class=" fa fa-bar-chart-o"></i>
-                            <span>Charts</span>
-                        </a>
-                        <ul class="sub">
-                            <li><a href="chartjs.html">Chart js</a></li>
-                            <li><a href="flot_chart.html">Flot Charts</a></li>
-                        </ul>
-                    </li>
-                    <li class="sub-menu">
-                        <a href="javascript:;">
-                            <i class=" fa fa-bar-chart-o"></i>
-                            <span>Maps</span>
-                        </a>
-                        <ul class="sub">
-                            <li><a href="google_map.html">Google Map</a></li>
-                            <li><a href="vector_map.html">Vector Map</a></li>
-                        </ul>
-                    </li>
-                    <li class="sub-menu">
-                        <a href="javascript:;">
-                            <i class="fa fa-glass"></i>
-                            <span>Extra</span>
-                        </a>
-                        <ul class="sub">
-                            <li><a href="gallery.html">Gallery</a></li>
-                            <li><a href="404.html">404 Error</a></li>
-                            <li><a href="registration.html">Registration</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="login.html">
-                            <i class="fa fa-user"></i>
-                            <span>Login Page</span>
-                        </a>
-                    </li>
-                </ul>            </div>
+                </ul>
+            </div>
             <!-- sidebar menu end-->
         </div>
     </aside>
@@ -211,14 +172,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script src="{{asset('public/backend/js/jquery.scrollTo.js')}}"></script>
 <!-- morris JavaScript -->
 <script>
-    $(document).ready(function() {
+    $(document).ready(function () {
         //BOX BUTTON SHOW AND CLOSE
-        jQuery('.small-graph-box').hover(function() {
+        jQuery('.small-graph-box').hover(function () {
             jQuery(this).find('.box-button').fadeIn('fast');
-        }, function() {
+        }, function () {
             jQuery(this).find('.box-button').fadeOut('fast');
         });
-        jQuery('.small-graph-box .box-close').click(function() {
+        jQuery('.small-graph-box .box-close').click(function () {
             jQuery(this).closest('.small-graph-box').fadeOut(200);
             return false;
         });
@@ -236,10 +197,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             gridLineColor: '#dddddd',
             axes: true,
             resize: true,
-            smooth:true,
+            smooth: true,
             pointSize: 0,
             lineWidth: 0,
-            fillOpacity:0.85,
+            fillOpacity: 0.85,
             data: [
                 {period: '2015 Q1', iphone: 2668, ipad: null, itouch: 2649},
                 {period: '2015 Q2', iphone: 15780, ipad: 13799, itouch: 12051},
@@ -252,7 +213,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 {period: '2017 Q1', iphone: 10697, ipad: 4470, itouch: 2038},
 
             ],
-            lineColors:['#eb6f6f','#926383','#eb6f6f'],
+            lineColors: ['#eb6f6f', '#926383', '#eb6f6f'],
             xkey: 'period',
             redraw: true,
             ykeys: ['iphone', 'ipad', 'itouch'],
@@ -268,7 +229,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- calendar -->
 <script type="text/javascript" src="{{asset('public/backend/js/monthly.js')}}"></script>
 <script type="text/javascript">
-    $(window).load( function() {
+    $(window).load(function () {
 
         $('#mycalendar').monthly({
             mode: 'event',
@@ -285,7 +246,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             disablePast: true
         });
 
-        switch(window.location.protocol) {
+        switch (window.location.protocol) {
             case 'http:':
             case 'https:':
                 // running on a server, should be good.
