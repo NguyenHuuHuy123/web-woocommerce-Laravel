@@ -103,7 +103,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
                     <li class="sub-menu">
                         <a href="javascript:;">
-                            <i class="fa fa-book"></i>
+                            <i class="fa fa-list" aria-hidden="true"></i>
                             <span>Danh mục sản phẩm</span>
                         </a>
                         <ul class="sub">
@@ -113,7 +113,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     </li>
                     <li class="sub-menu">
                         <a href="javascript:;">
-                            <i class="fa fa-envelope"></i>
+                            <i class="fa fa-exchange" aria-hidden="true"></i>
                             <span>Thương hiệu sản phẩm</span>
                         </a>
                         <ul class="sub">
@@ -133,12 +133,22 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     </li>
                     <li class="sub-menu">
                         <a href="javascript:;">
-                            <i class="fa fa-tasks"></i>
+                            <i class="fa fa-product-hunt" aria-hidden="true"></i>
                             <span>Quản lý đơn hàng</span>
                         </a>
                         <ul class="sub">
                             <li><a href="{{URL::to('admin/all-customer')}}">Khách hàng</a></li>
                             <li><a href="{{URL::to('admin/view-oder')}}">Đơn hàng</a></li>
+                        </ul>
+                    </li>
+                    <li class="sub-menu">
+                        <a href="javascript:;">
+                            <i class="fa fa-clipboard" aria-hidden="true"></i>
+                            <span>Quản lý tin tức</span>
+                        </a>
+                        <ul class="sub">
+                            <li><a href="{{URL::to('admin/add-post')}}">Thêm bài viết mới</a></li>
+                            <li><a href="{{URL::to('admin/all-post')}}">Danh sách bài viết</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -170,6 +180,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script src="{{asset('public/backend/js/jquery.nicescroll.js')}}"></script>
 <!--[if lte IE 8]><script language="javascript" type="text/javascript" src="{{asset('public/backend/js/flot-chart/excanvas.min.js')}}"></script><![endif]-->
 <script src="{{asset('public/backend/js/jquery.scrollTo.js')}}"></script>
+<script src="https://cdn.ckeditor.com/4.15.1/standard/ckeditor.js"></script>
+<script>
+    CKEDITOR.replace( 'content_post' );
+</script>
 <!-- morris JavaScript -->
 <script>
     $(document).ready(function () {

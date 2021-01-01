@@ -74,7 +74,7 @@
                                 <td>
                                     <span>
                                         <a href="{{URL::to('/admin/action-category-product/'.$item_category->id.'/edit')}}" class="edit-or-delete-category-product">
-                                            <i class="fa fa-check text-success text-active"> Edit </i>
+                                            <i class="fa fa-pencil-square-o text-success text-active" aria-hidden="true">Edit</i>
                                         </a>
                                         <a href="{{URL::to('/admin/action-category-product/'.$item_category->id.'/delete')}}" class="edit-or-delete-category-product">
                                             <i class="fa fa-times text-danger text">Delete</i>

@@ -10,6 +10,7 @@ use App\Http\Requests;
 use Illuminate\Support\Facedes\Redriect;
 use App\ProductModel;
 use App\CategoryModel;
+
 session_start();
 
 class ProductController extends Controller
@@ -17,16 +18,16 @@ class ProductController extends Controller
     public function add_product()
     {
         $allCategory = DB::table('tbl_category_product')->get();
-        return view("admin.product.add_product", [ "allCategory" => $allCategory]);
+        return view("admin.product.add_product", ["allCategory" => $allCategory]);
     }
 
     public function save_product(Request $request)
     {
         $request->validate([
-            'product_name'=>'required',
-            'product_price'=>'required',
-            'product_desc'=>'required',
-        ],[
+            'product_name' => 'required',
+            'product_price' => 'required',
+            'product_desc' => 'required',
+        ], [
             'product_name.required' => 'Không được để trống tên sản phẩm',
             'product_price.required' => 'Không được để trống giá sản phẩm',
             'product_desc.required' => 'Không được để trống mô tả sản phẩm',
@@ -41,7 +42,7 @@ class ProductController extends Controller
 
         if ($request->hasFile("product_image")) { // Kiểm tra có tải ảnh lên chưa
             $file_image = $request->product_image;  // Nếu có -> gán biến giá trị file tải lên
-            $file_image_name = rand(1, 100) . $file_image->getClientOriginalName();
+            $file_image_name = rand(1, 100) . '-' . $file_image->getClientOriginalName();
             $file_image->move("public/upload/product", $file_image_name);  //Lấy giá trị tên + đuôi
             // Hàm move có chức năng di chuyên ảnh trong bộ nhớ tạm vào thư mục của local.
             $data["product_image"] = "/public/upload/product/" . $file_image_name;
