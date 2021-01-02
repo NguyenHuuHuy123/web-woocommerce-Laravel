@@ -40,7 +40,7 @@
                         <img src="{{URL::to($post->image)}}" alt="hinh-anh-bai-viet" width="200px">
                     </div>
                     <button type="submit" class="btn btn-info">Lưu bài viết</button>
-                    <a class="btn btn-info" href="#">Hủy bỏ</a>
+                    <a class="btn btn-info" href="{{URL::to('admin/all-post')}}">Hủy bỏ</a>
                 </form>
             </div>
         </div>

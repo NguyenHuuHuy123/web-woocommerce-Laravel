@@ -147,11 +147,7 @@
                                     @endforeach
                                 </ul>
                             </li>
-                            <li class=""><a href="#">Tin tức</a>
-{{--                                <ul role="menu" class="sub-menu">--}}
-{{--                                    <li><a href="blog.html">Blog List</a></li>--}}
-{{--                                    <li><a href="blog-single.html">Blog Single</a></li>--}}
-{{--                                </ul>--}}
+                            <li class=""><a href="{{URL::to('/blog')}}">Tin tức</a>
                             </li>
                             <li><a href="{{URL::to('shop/cart')}}">Giỏ hàng
                                     <span class="badge badge-pill badge-danger soSanPhamTrongGioHang"
@@ -167,7 +163,7 @@
                                     </span>
                                 </a>
                             </li>
-                            <li><a href="#">Liên lạc</a></li>
+                            <li><a href="{{URL::to('/contact')}}">Liên lạc</a></li>
                         </ul>
                     </div>
                 </div>

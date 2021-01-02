@@ -7,6 +7,7 @@ use App\CategoryModel;
 use App\BrandModel;
 use App\ProductModel;
 use App\DetailOderModel;
+use App\PostModel;
 use Session;
 
 class HomeController extends Controller
@@ -65,4 +66,19 @@ class HomeController extends Controller
         return view('pages.checkout');
     }
 
+    //Blog
+    public function blogList(){
+        $allPost = PostModel::where('status', 0)->get();
+        return view('pages.blog_list', ['allPost'=>$allPost]);
+    }
+
+    public function singlePost($id){
+        $post_item = PostModel::find($id);
+        return view('pages.single_post', ['post_item'=>$post_item]);
+    }
+
+    // Contact
+    public function contact(){
+        return view('pages.contact');
+    }
 }
