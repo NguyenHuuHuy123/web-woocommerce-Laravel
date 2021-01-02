@@ -62,10 +62,10 @@ Route::group(["prefix" => "/admin", "middleware" => "authMiddleware"], function 
     Route::get('/add-post', "PostController@addPost");
     Route::post('/save-post', "PostController@savePost");
 
-
     Route::get('/all-post', "PostController@allPost");
-
-
+    Route::get('/action-post/{id}/{action}', "PostController@actionPost");
+    Route::post('/edit-post/{id}', "PostController@editPost");
+    Route::get('/change-status-post/{id}/{post_status}', "PostController@changeStatusPost");
 });
 
 //FRONTEND
