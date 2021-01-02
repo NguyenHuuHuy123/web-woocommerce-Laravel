@@ -80,7 +80,7 @@
                                             <i class="fa fa-pencil-square-o text-success" aria-hidden="true"> Edit </i>
                                         </a>
                                         <a href="{{URL::to('/admin/action-post/'.$item_post->id.'/delete')}}"
-                                           class="edit-or-delete-category-product">
+                                           class="edit-or-delete-category-product confirm-delete">
                                             <i class="fa fa-times text-danger text">Delete</i>
                                         </a>
                                     </span>
@@ -111,6 +111,17 @@
             </div>
         </div>
     </section>
+    <script>
+        var aElementDelete = document.querySelectorAll('.confirm-delete');
+        aElementDelete.forEach(function (item) {
+            item.addEventListener('click', function(event){
+                var result = confirm("Bạn có chắc muốn xóa bài viết này chứ?");
+                if (result == false) {
+                    event.preventDefault();
+                }
+            })
+        })
+    </script>
     <!-- footer -->
 @endsection
 

@@ -35,7 +35,5 @@ class Controller extends BaseController
             'allProduct'=>$allProduct,
             'allCustomer'=>$allCustomer
         ]);
-
-
     }
 }

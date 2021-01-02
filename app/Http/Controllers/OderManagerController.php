@@ -27,6 +27,20 @@ class OderManagerController extends Controller
         return view('admin.oder.view_customer', ['detailCustomer' => $detailCustomer]);
     }
 
+    public function deleteCustomer($id_customer){
+        $idOder = OderModel::where('customer_id',$id_customer)->first()->id;
+        //Xóa các sản phẩm trong đơn hàng
+        DetailOderModel::where('oder_id',$idOder)->delete();
+        //Xóa đơn hàng
+        OderModel::find($idOder)->delete();
+        //Xóa khách hàng
+        CustomerModel::find($id_customer)->delete();
+
+        Session::put("message", 'Đã xóa khách hàng thành công!');
+        return back();
+    }
+
+
 
     //Quan ly don hang
     public function viewOder()
@@ -39,7 +53,7 @@ class OderManagerController extends Controller
     public function updateStatusOder(Request $request, $id_oder)
     {
         OderModel::where("id", $id_oder)->update(['status'=>$request->oder_status]);
-        return redirect('admin/view-oder');
+        return back();
     }
 
     public function viewDetailOder($id_oder)
@@ -53,5 +67,4 @@ class OderManagerController extends Controller
             'statusAll'=>$statusAll
         ]);
     }
-
 }

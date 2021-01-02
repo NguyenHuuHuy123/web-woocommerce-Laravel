@@ -22,7 +22,7 @@
                         @foreach( $all_oder as $key => $item_oder)
                             <tr>
                                 <td><span class="text-ellipsis">{{ $item_oder->id}} </span></td>
-                                <td><span class="text-ellipsis">{{ $item_oder->getCustomer->name}}</span></td>
+                                <td><span class="text-ellipsis">{{ $item_oder->getCustomer->name }}</span></td>
                                 <td><span class="text-ellipsis">
                                         <a href='{{URL::to('/admin/view-detail-oder/'.$item_oder->id)}}'>
                                          Xem

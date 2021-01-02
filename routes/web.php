@@ -53,6 +53,7 @@ Route::group(["prefix" => "/admin", "middleware" => "authMiddleware"], function 
 //ORDER MANAGER
     Route::get('/all-customer', "OderManagerController@allCustomer");
     Route::get('/edit-info-customer/{id_customer}', "OderManagerController@viewCustomer");
+    Route::get('/delete-customer/{id_customer}', "OderManagerController@deleteCustomer");
 
     Route::get('/view-oder', "OderManagerController@viewOder");
     Route::get('/update-status-oder/{id_oder}', "OderManagerController@updateStatusOder");

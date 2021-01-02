@@ -27,13 +27,20 @@
                     </div>
                 </div>
                 <div class="table-responsive">
+                    <?php
+                    $mess = Session::get("message");
+                    if ($mess) {
+                    echo "<span style='color: #209820; text-align: center; display:block'>" . $mess . "</span>";
+                    Session::put("message", null);
+                    }
+                    ?>
                     <table class="table table-striped b-t b-light">
                         <thead>
                         <tr>
                             <th>Tên khách hàng</th>
                             <th>Số điện thoại</th>
-                            <th>Xem/sửa</th>
-                            <th>Lịch sử mua hàng</th>
+                            <th>Thông tin</th>
+                            <th>Đơn hàng</th>
                             <th>Xóa</th>
                         </tr>
                         </thead>
@@ -45,26 +52,37 @@
                                 <td>
                                     <span class="text-ellipsis">
                                      <a href='{{URL::to('/admin/edit-info-customer/'.$item_customer->id)}}'>
-                                         Sửa
+                                         <i class="fa fa-eye" aria-hidden="true"></i> Chi tiết
                                      </a>
                                     </span>
                                 </td>
                                 <td><span class="text-ellipsis">
-                                    <a href='{{URL::to('/admin/view-oder/'.$item_customer->id)}}'>
-                                         Chi tiết
+                                    <a href='{{URL::to('/admin/view-detail-oder/'.$item_customer->getOder->first()->id)}}'>
+                                         <i class="fa fa-cart-plus" aria-hidden="true"> Chi tiết </i>
                                      </a>
                                     </span>
                                 </td>
                                 <td><span class="text-ellipsis">
                                        <a href="{{URL::to('/admin/delete-customer/'.$item_customer->id)}}"
-                                          class="edit-or-delete-category-product">
-                                            <i class="fa fa-times text-danger text">Delete</i>
+                                          class="edit-or-delete-category-product confirm-delete">
+                                           <i class="fa fa-trash text-danger text" aria-hidden="true"> Delete </i>
                                         </a>
                                     </span>
                                 </td>
                             </tr>
                         @endforeach
                         </tbody>
+                        <script>
+                            var aElementDelete = document.querySelectorAll('.confirm-delete');
+                            aElementDelete.forEach(function (item) {
+                                item.addEventListener('click', function(event){
+                                    var result = confirm("Nếu bạn xóa khách hàng này, đồng nghĩa tất cả thông tin liên qua đến người đó đều mất. Bạn chắc chứ?");
+                                    if (result == false) {
+                                        event.preventDefault();
+                                    }
+                                })
+                            })
+                        </script>
                     </table>
                 </div>
                 <footer class="panel-footer">

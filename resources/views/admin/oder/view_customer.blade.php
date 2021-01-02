@@ -46,7 +46,7 @@
                         <td> {{$detailCustomer->gmail}}</td>
                     </tr>
                 </table>
-                <a href="#" class="btn btn-primary" style="margin-top: 10px ">Xem đơn hàng</a>
+                <a href="{{URL::to('/admin/view-detail-oder/'.$detailCustomer->getOder->first()->id)}}" class="btn btn-primary" style="margin-top: 10px ">Xem đơn hàng</a>
             </div>
         </div>
     </section>
