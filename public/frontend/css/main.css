@@ -2543,10 +2543,12 @@ h2.title {
 .accountAndLogout{
     margin-top: 10px;
     position: relative;
+    z-index: 1;
 }
 
 .accountAndLogout:hover .accountAndLogout_item{
- display: block;
+    display: block;
+    width: 100px;
 }
 
 .accountAndLogout_item{

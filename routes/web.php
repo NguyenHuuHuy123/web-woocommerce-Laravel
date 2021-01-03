@@ -91,7 +91,7 @@ Route::group(["prefix" => "/", 'middleware' => 'AuthLoginCustomerMiddleware'], f
         Route::get('/checkout', "HomeController@checkOut");
     });
 
-//Customer
+    //Customer
     Route::group(["prefix" => "/customer"], function () {
         Route::post('/create-user-and-save-oder', "CustomerController@createUserAndSaveOder");
         Route::get('/checkoder', "CustomerController@checkOder"); // Kiểm tra trang thái đơn hàng
@@ -100,14 +100,13 @@ Route::group(["prefix" => "/", 'middleware' => 'AuthLoginCustomerMiddleware'], f
         Route::get('/account', "CustomerController@account");
         Route::post('/check-account-customer', "CustomerController@checkAccountCustomer");
     });
-// Blog
+    //Blog
     Route::group(["prefix" => "/blog"], function () {
         Route::get('/', "HomeController@blogList");
         Route::get('/{id}', "HomeController@singlePost");
     });
-// Contact
+    //Contact
     Route::get('/contact', "HomeController@contact");
-
 });
 
 
